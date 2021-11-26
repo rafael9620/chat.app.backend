@@ -15,7 +15,6 @@ public class ChatCrontroller {
     public MyMessage getMessage(MyMessage myMessage){
         myMessage.setDate(new Date().getTime());
         myMessage.setText("Recibido por el Broker" + myMessage.getText());
-
         return myMessage;
     }
 }

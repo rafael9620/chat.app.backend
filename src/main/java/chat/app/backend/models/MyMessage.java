@@ -11,4 +11,6 @@ public class MyMessage implements Serializable {
     private long date;
     private String username;
     private String types;
+    private String color;
+
 }

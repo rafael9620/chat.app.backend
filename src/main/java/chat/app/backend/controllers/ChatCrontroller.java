@@ -10,11 +10,14 @@ import java.util.Date;
 @Controller
 public class ChatCrontroller {
 
-    @MessageMapping
+    @MessageMapping("/message")
     @SendTo("/chat/message") // Con esta anotacion notificamos a los clientes de la existencia de un mensaje
     public MyMessage getMessage(MyMessage myMessage){
         myMessage.setDate(new Date().getTime());
-        myMessage.setText("Recibido por el Broker" + myMessage.getText());
+        if (myMessage.getTypes().equals("NEW_USER")){
+            myMessage.setText(" - Nuevo usuario conectado");
+        }
+        //myMessage.setText(" - Nuevo usuario conectado2");
         return myMessage;
     }
 }
